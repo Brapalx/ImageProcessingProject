@@ -5,7 +5,8 @@ import numpy
 # Work in progress, output needs to be cleaned
 # image - numpy array for image to generate mask from
 # dimensions - array of [ width , height , # of color channels ]
-def create_object_mask(image, dimensions)
+# return = an image with 255 for part of an object, 0 for background
+def create_object_mask(image, dimensions):
     width = dimensions[0]
     height = dimensions[1]
     channels = dimensions[2]

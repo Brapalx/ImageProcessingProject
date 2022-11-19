@@ -1,6 +1,5 @@
 import cv2
 import numpy
-import rawpy
 
 
 def calculate_data_point_with_prefix(images, num_images, output):
@@ -14,10 +13,12 @@ def calculate_data_point(images, num_images, output, x, y):
     data_set = numpy.sort(data_set, axis=0)
     output[x, y] = images[data_set[int(num_images / 2)][1]][x, y]
 
-# Uses averaging to stack all of the flat images
+# Uses median to stack all of the flat images
 # flat_images - array of flat images (numpy arrays)
 # dimensions - array of [ width , height , # of color channels ]
+# return = a single merged flat image
 def stack_flat_images(flat_images, dimensions):
+    return numpy.median(flat_images, axis=0)
     width = dimensions[0]
     height = dimensions[1]
     channels = dimensions[2]

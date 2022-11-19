@@ -1,10 +1,16 @@
 from load_images import load_folder
 from flat_stack import stack_flat_images
+from dark_stack import stack_dark_images
 from object_detection import create_object_mask
 
 import cv2 as cv
 
 
 # Main function here
+light_image_array = load_folder("./lights")
 flat_image_array = load_folder("./flats")
-master_flat_image = stack_flat_images(flat_image_array, flat_image_array[0].shape)
+dark_image_array = load_folder("./darks")
+bias_image_array = load_folder("./biases")
+dimensions = light_image_array[0].shape
+master_flat_image = stack_flat_images(flat_image_array, dimensions)
+master_dark_image = stack_dark_images(dark_image_array, dimensions)
