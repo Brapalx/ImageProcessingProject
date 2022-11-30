@@ -33,12 +33,3 @@ def stack_dark_images(dark_images, dimensions, iterations, kappa):
         sigma = stack_sigma(dark_images)
         reject_deviant_pixels(dark_images, mean, sigma, kappa)
     return numpy.mean(dark_images, axis=0)
-
-from load_images import load_folder
-
-dark__images = load_folder("darks")
-output_0 = stack_dark_images(dark__images, dark__images[0].shape, 1, 100)
-output_1 = stack_dark_images(dark__images, dark__images[0].shape, 5, 100)
-
-cv2.imwrite("output0.png", output_0)
-cv2.imwrite("output1.png", output_1)
