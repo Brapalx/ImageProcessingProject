@@ -17,6 +17,7 @@ def stack_sigma(stack):
 
 def reject_deviant_pixels(stack, mean, sigma, kappa):
     for img in range(len(stack)):
+        print(img)
         for x in range(len(stack[img])):
             for y in range(len(stack[img][x])):
                 pixel = stack[img][x, y]
@@ -33,3 +34,10 @@ def stack_dark_images(dark_images, dimensions, iterations, kappa):
         sigma = stack_sigma(dark_images)
         reject_deviant_pixels(dark_images, mean, sigma, kappa)
     return numpy.mean(dark_images, axis=0)
+
+
+
+
+
+
+

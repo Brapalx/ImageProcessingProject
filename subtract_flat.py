@@ -63,10 +63,10 @@ def histogram_equalization_Colored(image_array):
 
 
 #example to histogram equalization
-input_image = cv.imread("MasterDark_ISO200_30s.tif")
-input_image2 = cv.imread("MasterFlat_ISO100.tif")
+#input_image = cv.imread("MasterDark_ISO200_30s.tif")
+#input_image2 = cv.imread("MasterFlat_ISO100.tif")
 
-out_image = subtract_flat_frame(input_image,input_image2)
+#out_image = subtract_flat_frame(input_image,input_image2)
 
 
 
@@ -76,4 +76,5 @@ out_image = subtract_flat_frame(input_image,input_image2)
 # # out_image = subtract_flat_frame(np_input_image,np_input_image2)
 # # out_image = histogram_equalization(np_input_image)
 # out_image = histogram_equalization_Colored(np_input_image)
-cv.imwrite("outimage1.png", out_image)
+
+#cv.imwrite("outimage1.png", out_image)

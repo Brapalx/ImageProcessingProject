@@ -48,6 +48,6 @@ def stack_light_images(light_images, dimensions):
     for img in light_images:
         M = matching_homography_matrix(base_img, img)
         output_img += cv.warpPerspective(img, M, (height, width))
-        # counter = np.ones(counter_dimensions, dtype=int)
-        # ounter_img += cv.warpPerspective(counter, M, (width, height))
+        counter = np.ones(counter_dimensions, dtype=int)
+        counter_img += cv.warpPerspective(counter, M, (height, width))
     return ((output_img*255)/output_img.max()).astype('uint8'), new_dimensions(counter_img, [width, height])
