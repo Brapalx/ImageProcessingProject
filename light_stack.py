@@ -29,6 +29,7 @@ def matching_homography_matrix(base, other):
     destin_points = np.float32([kp2[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
     M, mask = cv.findHomography(source_points, destin_points, cv.RANSAC, 10.0)
     if mask.sum() < 10:
+        print("Image does not match well with base")
         return np.identity(3)
     return M
 
@@ -51,3 +52,10 @@ def stack_light_images(light_images, dimensions):
         #counter = np.ones(counter_dimensions, dtype=int)
         #counter_img += cv.warpPerspective(counter, M, (height, width))
     return ((output_img*255)/output_img.max()).astype('uint8'), new_dimensions(counter_img, [width, height])
+
+
+# light_images = load_folder("./lights", log=True)
+# light_images = light_images[0:1]
+# output, dimensions = stack_light_images(light_images, light_images[0].shape)
+# print(output)
+# cv.imwrite("img_stack.png", output)
