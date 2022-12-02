@@ -6,7 +6,7 @@ import cv2 as cv
 
 def subtract_flat_frame(input_image_array , flat_image_array):
     subtractImage = np.subtract(flat_image_array , input_image_array)
-    output4image = histogram_equalization(subtractImage)
+    output4image = histogram_equalization_Colored(subtractImage)
     return output4image
 
 
